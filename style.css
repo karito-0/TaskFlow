@@ -1,5 +1,5 @@
 /* =====================================================
-   1. VARIABLES GLOBALES
+    VARIABLES GLOBALES
    ===================================================== */
 :root {
   --bg-page: #0d1117;
@@ -43,7 +43,7 @@
 }
 
 /* =====================================================
-   2. RESET Y BASE
+    RESET Y BASE
    ===================================================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -62,7 +62,7 @@ a { color: var(--azul); text-decoration: none; transition: color var(--t); }
 a:hover { color: var(--verde); }
 
 /* =====================================================
-   3. LOGIN COMO TAL
+    LOGIN COMO TAL
    ===================================================== */
 .card {
   background: var(--bg-card);
@@ -107,7 +107,7 @@ a:hover { color: var(--verde); }
 .register-text { margin-top: var(--sp-md); font-size: var(--fs-sm); }
 
 /* =====================================================
-   4. BOTONES
+    BOTONES
    ===================================================== */
 .btn {
   display: inline-flex;
@@ -139,7 +139,7 @@ a:hover { color: var(--verde); }
 .btn-completo { width: 100%; }
 
 /* =====================================================
-   5. CAMPOS DE FORMULARIO
+    CAMPOS DE FORMULARIO
    ===================================================== */
 .form-group { margin-bottom: var(--sp-md); }
 label {
@@ -171,7 +171,7 @@ input:focus {
 .link:hover { color: var(--verde); }
 
 /* =====================================================
-   6. RESPONSIVE
+    RESPONSIVE
    ===================================================== */
 @media (max-width: 600px) {
   .card { padding: var(--sp-lg); }
