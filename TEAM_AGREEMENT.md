@@ -6,7 +6,7 @@ Este documento establece las reglas de convivencia, comunicación y estándares 
 | Nombre | Rol | Usuario de GitHub |
 | :--- | :--- | :--- |
 | [Jesús Manuel Durán] | Líder (Arquitecto) | `@JesusmanR` |
-| [Nombre del Aprendiz 2] | Desarrollador | `@karito-0` |
+| [Karoll Orduz] | Desarrollador | `@karito-0` |
 | [Deyvid Alexander Ballesteros Chávez] | Desarrollador | `@MaximontiX` |
 
 ## 2. Canales de Comunicación
