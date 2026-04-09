@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — Gestión de Tareas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header">
+    <a href="#dashboard" class="logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">Task<strong>Flow</strong></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#dashboard" class="nav-link">Dashboard</a>
+      <a href="#create-task" class="nav-link nav-link--highlight">+ Nueva Tarea</a>
+      <a href="#task-detail" class="nav-link">Detalle</a>
+      <a href="#register" class="nav-link">Registro</a>
+      <a href="#login" class="nav-btn">Ingresar</a>
+    </nav>
+    <button class="hamburger" aria-label="Abrir menú">☰</button>
+  </header>
+
+  <!-- ===== MAIN CONTENT WRAPPER ===== -->
+  <main class="app-main">
+
+    <!-- ============================================================
+         VISTA 1: DASHBOARD — CSS Grid
+    ============================================================ -->
+    <section id="dashboard" class="view view--dashboard" aria-label="Tablero principal">
+
+      <div class="dashboard-toolbar">
+        <div class="toolbar-left">
+          <h1 class="page-title">Mis Tareas <span class="badge">12</span></h1>
+          <p class="page-subtitle">Semana del 7 al 13 de abril, 2026</p>
+        </div>
+        <div class="toolbar-right">
+          <div class="filter-chips">
+            <button class="chip chip--active">Todas</button>
+            <button class="chip">Activas</button>
+            <button class="chip">Completadas</button>
+            <button class="chip">Urgentes</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row">
+        <article class="stat-card">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Total</span>
+        </article>
+        <article class="stat-card stat-card--green">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Completadas</span>
+        </article>
+        <article class="stat-card stat-card--yellow">
+          <span class="stat-number">4</span>
+          <span class="stat-label">En progreso</span>
+        </article>
+        <article class="stat-card stat-card--red">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Pendientes</span>
+        </article>
+      </div>
+
+      <!-- Task Grid -->
+      <div class="tasks-grid">
+
+        <article class="task-card task-card--urgent">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--red">Urgente</span>
+            <span class="task-priority">🔴</span>
+          </header>
+          <h3 class="task-card__title">Diseñar mockup del módulo de pagos</h3>
+          <p class="task-card__desc">Crear wireframes en Figma para las pantallas de checkout y confirmación de pago.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 9 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <article class="task-card task-card--done">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--green">Completada</span>
+            <span class="task-priority">✅</span>
+          </header>
+          <h3 class="task-card__title">Configurar repositorio en GitHub</h3>
+          <p class="task-card__desc">Crear repo task-manager-ui, inicializar con README y proteger rama main.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 7 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <article class="task-card">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--blue">En progreso</span>
+            <span class="task-priority">🟡</span>
+          </header>
+          <h3 class="task-card__title">Maquetar vista de Login con Flexbox</h3>
+          <p class="task-card__desc">Usar display: flex para centrar el formulario de inicio de sesión en la pantalla.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 10 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <article class="task-card">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--blue">En progreso</span>
+            <span class="task-priority">🟡</span>
+          </header>
+          <h3 class="task-card__title">Implementar CSS Grid en el Dashboard</h3>
+          <p class="task-card__desc">Crear cuadrícula responsiva con minmax() para las tarjetas de tareas.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 11 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <article class="task-card task-card--done">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--green">Completada</span>
+            <span class="task-priority">✅</span>
+          </header>
+          <h3 class="task-card__title">Definir variables CSS globales</h3>
+          <p class="task-card__desc">Crear :root con colores primarios, tipografías y espaciados del sistema de diseño.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 8 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <article class="task-card task-card--urgent">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--red">Urgente</span>
+            <span class="task-priority">🔴</span>
+          </header>
+          <h3 class="task-card__title">Aplicar Responsive Design (Media Queries)</h3>
+          <p class="task-card__desc">Adaptar todas las vistas para móviles. La grid debe colapsar a una columna en pantallas pequeñas.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 12 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <article class="task-card">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--gray">Pendiente</span>
+            <span class="task-priority">⚪</span>
+          </header>
+          <h3 class="task-card__title">Maquetar vista de Registro de Usuarios</h3>
+          <p class="task-card__desc">Formulario con campos de nombre, correo, contraseña y confirmación.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 13 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <article class="task-card task-card--done">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--green">Completada</span>
+            <span class="task-priority">✅</span>
+          </header>
+          <h3 class="task-card__title">Crear Milestones e Issues en GitHub</h3>
+          <p class="task-card__desc">Planificar el sprint completo con 5 issues asignados al milestone de maquetación.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 7 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <article class="task-card">
+          <header class="task-card__header">
+            <span class="task-tag task-tag--gray">Pendiente</span>
+            <span class="task-priority">⚪</span>
+          </header>
+          <h3 class="task-card__title">Maquetar vista de Detalle de Tarea</h3>
+          <p class="task-card__desc">Vista ampliada con descripción completa, etiquetas, fecha límite y estado de la tarea.</p>
+          <footer class="task-card__footer">
+            <span class="task-date">📅 13 Abr</span>
+            <span class="task-assignee">JM</span>
+            <a href="#task-detail" class="task-link">Ver más →</a>
+          </footer>
+        </article>
+
+        <!-- CTA card -->
+        <article class="task-card task-card--cta">
+          <div class="cta-content">
+            <span class="cta-icon">+</span>
+            <p>Agregar nueva tarea</p>
+            <a href="#create-task" class="btn btn--primary">Crear Tarea</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         VISTA 2: CREAR TAREA — Formulario
+    ============================================================ -->
+    <section id="create-task" class="view view--form" aria-label="Creación de tarea">
+      <div class="form-wrapper">
+        <div class="form-card">
+          <header class="form-card__header">
+            <a href="#dashboard" class="back-link">← Volver</a>
+            <div class="form-icon">📋</div>
+            <h1 class="form-title">Nueva Tarea</h1>
+            <p class="form-subtitle">Completa los campos para crear una actividad</p>
+          </header>
+
+          <div class="form-body">
+            <div class="form-group">
+              <label class="form-label" for="task-title">Título de la tarea *</label>
+              <input class="form-input" type="text" id="task-title" name="task-title"
+                     placeholder="Ej: Diseñar pantalla de login" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="task-desc">Descripción</label>
+              <textarea class="form-input form-textarea" id="task-desc" name="task-desc"
+                        placeholder="Describe los detalles, criterios de aceptación o pasos a seguir..." rows="4"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="task-priority">Prioridad</label>
+                <select class="form-input form-select" id="task-priority" name="task-priority">
+                  <option value="">Seleccionar...</option>
+                  <option value="low">🟢 Baja</option>
+                  <option value="medium">🟡 Media</option>
+                  <option value="high">🔴 Alta / Urgente</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="task-status">Estado</label>
+                <select class="form-input form-select" id="task-status" name="task-status">
+                  <option value="pending">⚪ Pendiente</option>
+                  <option value="progress">🟡 En progreso</option>
+                  <option value="done">✅ Completada</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="task-due">Fecha límite</label>
+                <input class="form-input" type="date" id="task-due" name="task-due" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="task-assignee">Asignado a</label>
+                <input class="form-input" type="text" id="task-assignee" name="task-assignee"
+                       placeholder="Nombre del responsable" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="task-tags">Etiquetas</label>
+              <input class="form-input" type="text" id="task-tags" name="task-tags"
+                     placeholder="frontend, css, diseño (separadas por coma)" />
+            </div>
+
+            <div class="form-actions">
+              <a href="#dashboard" class="btn btn--ghost">Cancelar</a>
+              <button type="button" class="btn btn--primary">✓ Guardar Tarea</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         VISTA 3: REGISTRO — Flexbox centrado
+    ============================================================ -->
+    <section id="register" class="view view--auth" aria-label="Registro de usuario">
+      <div class="auth-wrapper">
+        <div class="auth-card">
+          <div class="auth-brand">
+            <span class="logo-icon">✦</span>
+            <span>Task<strong>Flow</strong></span>
+          </div>
+          <h1 class="auth-title">Crear cuenta</h1>
+          <p class="auth-subtitle">Únete y empieza a gestionar tus proyectos</p>
+
+          <div class="auth-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="reg-nombre">Nombre</label>
+                <input class="form-input" type="text" id="reg-nombre" name="nombre" placeholder="Jesús Manuel" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-apellido">Apellido</label>
+                <input class="form-input" type="text" id="reg-apellido" name="apellido" placeholder="García" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Correo electrónico</label>
+              <input class="form-input" type="email" id="reg-email" name="email" placeholder="correo@ejemplo.com" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-pass">Contraseña</label>
+              <input class="form-input" type="password" id="reg-pass" name="password" placeholder="Mínimo 8 caracteres" />
+              <div class="password-strength">
+                <span class="strength-bar strength-bar--weak"></span>
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+                <span class="strength-label">Fortaleza de contraseña</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-confirm">Confirmar contraseña</label>
+              <input class="form-input" type="password" id="reg-confirm" name="confirm" placeholder="Repite tu contraseña" />
+            </div>
+
+            <div class="form-group form-group--check">
+              <input type="checkbox" id="reg-terms" name="terms" />
+              <label for="reg-terms">Acepto los <a href="#" class="auth-link">términos y condiciones</a></label>
+            </div>
+
+            <button type="button" class="btn btn--primary btn--full">Crear mi cuenta →</button>
+
+            <p class="auth-switch">¿Ya tienes cuenta? <a href="#login" class="auth-link">Inicia sesión aquí</a></p>
+          </div>
+        </div>
+
+        <div class="auth-visual" aria-hidden="true">
+          <div class="visual-content">
+            <p class="visual-quote">"Organiza tu trabajo,<br/><strong>organiza tu vida.</strong>"</p>
+            <ul class="feature-list">
+              <li>✦ Gestiona tareas en equipo</li>
+              <li>✦ Historial de cambios con Git</li>
+              <li>✦ Diseño adaptable a móviles</li>
+              <li>✦ Gratis para siempre</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         VISTA 4: LOGIN — Flexbox centrado
+    ============================================================ -->
+    <section id="login" class="view view--auth view--login" aria-label="Inicio de sesión">
+      <div class="login-wrapper">
+        <div class="auth-card auth-card--centered">
+          <div class="auth-brand">
+            <span class="logo-icon">✦</span>
+            <span>Task<strong>Flow</strong></span>
+          </div>
+          <h1 class="auth-title">Bienvenido de vuelta</h1>
+          <p class="auth-subtitle">Ingresa tus credenciales para continuar</p>
+
+          <div class="auth-form">
+            <div class="form-group">
+              <label class="form-label" for="login-email">Correo electrónico</label>
+              <input class="form-input" type="email" id="login-email" name="email"
+                     placeholder="correo@ejemplo.com" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-pass">Contraseña</label>
+              <input class="form-input" type="password" id="login-pass" name="password"
+                     placeholder="••••••••" />
+              <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <div class="form-group form-group--check">
+              <input type="checkbox" id="remember" name="remember" />
+              <label for="remember">Recordar sesión</label>
+            </div>
+
+            <a href="#dashboard" class="btn btn--primary btn--full">Ingresar →</a>
+
+            <div class="auth-divider"><span>o</span></div>
+
+            <button type="button" class="btn btn--ghost btn--full btn--social">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+                <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+                <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+                <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+              </svg>
+              Continuar con Google
+            </button>
+
+            <p class="auth-switch">¿No tienes cuenta? <a href="#register" class="auth-link">Regístrate gratis</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         VISTA 5: DETALLE DE TAREA
+    ============================================================ -->
+    <section id="task-detail" class="view view--detail" aria-label="Detalle de tarea">
+      <div class="detail-container">
+
+        <nav class="breadcrumb" aria-label="Migas de pan">
+          <a href="#dashboard" class="breadcrumb-link">Dashboard</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">Detalle de Tarea</span>
+        </nav>
+
+        <div class="detail-layout">
+
+          <!-- Main info -->
+          <article class="detail-main">
+            <header class="detail-header">
+              <div class="detail-tags">
+                <span class="task-tag task-tag--blue">En progreso</span>
+                <span class="task-tag task-tag--red">Urgente</span>
+              </div>
+              <h1 class="detail-title">Diseñar mockup del módulo de pagos</h1>
+              <p class="detail-meta">
+                Creada el <time datetime="2026-04-07">7 de abril, 2026</time>
+                · por <strong>Jesús Manuel</strong>
+              </p>
+            </header>
+
+            <section class="detail-section" aria-labelledby="desc-heading">
+              <h2 id="desc-heading" class="detail-section-title">Descripción</h2>
+              <p class="detail-text">
+                Crear wireframes de alta fidelidad en Figma para las pantallas de checkout 
+                y confirmación de pago del sistema e-commerce. Se deben incluir los estados 
+                vacío, cargando, éxito y error de cada pantalla.
+              </p>
+              <p class="detail-text">
+                El diseño debe seguir el sistema de diseño establecido, usando las variables 
+                CSS globales definidas en el archivo <code class="inline-code">styles.css</code> 
+                y respetar las guías de accesibilidad WCAG 2.1.
+              </p>
+            </section>
+
+            <section class="detail-section" aria-labelledby="checklist-heading">
+              <h2 id="checklist-heading" class="detail-section-title">Lista de verificación</h2>
+              <ul class="checklist">
+                <li class="checklist-item checklist-item--done">
+                  <span class="check">✓</span> Definir flujo de usuario en papel
+                </li>
+                <li class="checklist-item checklist-item--done">
+                  <span class="check">✓</span> Crear componentes base en Figma
+                </li>
+                <li class="checklist-item">
+                  <span class="check-empty">○</span> Diseñar pantalla de checkout
+                </li>
+                <li class="checklist-item">
+                  <span class="check-empty">○</span> Diseñar pantalla de confirmación
+                </li>
+                <li class="checklist-item">
+                  <span class="check-empty">○</span> Revisión con el instructor
+                </li>
+              </ul>
+            </section>
+
+            <section class="detail-section" aria-labelledby="comments-heading">
+              <h2 id="comments-heading" class="detail-section-title">Comentarios (2)</h2>
+              <div class="comments-list">
+                <div class="comment">
+                  <div class="comment-avatar">JM</div>
+                  <div class="comment-body">
+                    <p class="comment-author">Jesús Manuel <time class="comment-time">hace 3 horas</time></p>
+                    <p class="comment-text">Empezando con los wireframes en papel. Mañana paso al prototipo digital.</p>
+                  </div>
+                </div>
+                <div class="comment">
+                  <div class="comment-avatar comment-avatar--instructor">JB</div>
+                  <div class="comment-body">
+                    <p class="comment-author">Instructor <time class="comment-time">hace 1 hora</time></p>
+                    <p class="comment-text">Recuerda aplicar HTML semántico en todas las vistas. ¡Buen avance!</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="comment-input-row">
+                <div class="comment-avatar">JM</div>
+                <input class="form-input" type="text" placeholder="Escribe un comentario..." />
+              </div>
+            </section>
+          </article>
+
+          <!-- Sidebar info -->
+          <aside class="detail-sidebar" aria-label="Información de la tarea">
+            <div class="sidebar-widget">
+              <h3 class="sidebar-title">Detalles</h3>
+              <dl class="detail-list">
+                <dt>Estado</dt>
+                <dd><span class="task-tag task-tag--blue">En progreso</span></dd>
+
+                <dt>Prioridad</dt>
+                <dd><span class="task-tag task-tag--red">🔴 Urgente</span></dd>
+
+                <dt>Fecha límite</dt>
+                <dd>📅 9 de abril, 2026</dd>
+
+                <dt>Asignado a</dt>
+                <dd>👤 Jesús Manuel</dd>
+
+                <dt>Proyecto</dt>
+                <dd>task-manager-ui</dd>
+
+                <dt>Issue</dt>
+                <dd><code class="inline-code">#3</code> GitHub</dd>
+              </dl>
+            </div>
+
+            <div class="sidebar-widget">
+              <h3 class="sidebar-title">Etiquetas</h3>
+              <div class="tag-cloud">
+                <span class="tag">figma</span>
+                <span class="tag">diseño</span>
+                <span class="tag">frontend</span>
+                <span class="tag">ux</span>
+                <span class="tag">mockup</span>
+              </div>
+            </div>
+
+            <div class="sidebar-widget">
+              <h3 class="sidebar-title">Progreso</h3>
+              <div class="progress-bar-container">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 40%"></div>
+                </div>
+                <span class="progress-label">40% completado</span>
+              </div>
+            </div>
+
+            <div class="sidebar-actions">
+              <button class="btn btn--primary btn--full">✓ Marcar completada</button>
+              <a href="#create-task" class="btn btn--ghost btn--full">✎ Editar</a>
+              <a href="#dashboard" class="btn btn--ghost btn--full">← Volver al tablero</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <p>✦ <strong>TaskFlow</strong> — Proyecto SENA · Tecnologo en Análisis y desarrollo de Software · 2026</p>
+    <nav aria-label="Navegación del pie de página">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#create-task">Nueva Tarea</a>
+      <a href="#login">Ingresar</a>
+      <a href="#register">Registro</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
