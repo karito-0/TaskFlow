@@ -7,7 +7,7 @@ Este documento establece las reglas de convivencia, comunicación y estándares 
 | :--- | :--- | :--- |
 | [Jesús Manuel Durán] | Líder (Arquitecto) | `@JesusmanR` |
 | [Nombre del Aprendiz 2] | Desarrollador | `@karito-0` |
-| [Nombre del Aprendiz 3] | Desarrollador | `@Deyvid` |
+| [Deyvid Alexander Ballesteros Chávez] | Desarrollador | `@MaximontiX` |
 
 ## 2. Canales de Comunicación
 Para mantener el orden y separar lo profesional de lo personal, usaremos los siguientes canales:
